@@ -1,13 +1,5 @@
 import type { SiteSettings } from "@/types/sanity";
 
-const SERVICE_LINKS = [
-  "Landscape Design",
-  "Garden Landscaping",
-  "Garden Makeovers",
-  "Paving & Outdoor Areas",
-  "Retaining Walls",
-];
-
 const USEFUL_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Our Services", href: "#services" },
@@ -38,17 +30,6 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
               {h}
             </p>
           ))}
-        </div>
-
-        <div>
-          <h3 className="font-headline text-lg mb-4">Services</h3>
-          <ul className="space-y-2">
-            {SERVICE_LINKS.map((s) => (
-              <li key={s} className="text-sm opacity-80">
-                {s}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div>
