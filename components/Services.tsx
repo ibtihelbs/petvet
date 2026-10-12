@@ -20,7 +20,7 @@ export function Services({
       <div className="max-w-2xl mx-auto text-center mb-12">
         <h2 className="uppercase leading-none tracking-tight text-[clamp(30px,8vw,48px)] text-marine mb-4">
           {settings?.servicesHeading ||
-            "Complete Landscaping Services in Perth"}
+            "Des soins complets à chaque étape de la vie de votre animal"}
         </h2>
         {settings?.servicesIntro && (
           <p className="text-ink/70">{settings.servicesIntro}</p>
@@ -30,27 +30,27 @@ export function Services({
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
         {services.map((service) => {
           const imgUrl =
-            urlFor(service.image?.asset)?.width(500).height(500).url() ||
+            urlFor(service.image?.asset)?.url() ||
             serviceImageFallback[service.slug?.current] ||
             null;
 
           return (
             <div
               key={service._id}
-              className="rounded-brand bg-white overflow-hidden shadow-sm"
+              className="rounded-brand bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
               {imgUrl && (
-                <div className="relative aspect-square">
+                <div className="relative w-full aspect-square bg-cream">
                   <Image
                     src={imgUrl}
                     alt={service.image?.alt || service.title}
                     fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 20vw, 50vw"
+                    className="object-contain "
+                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw"
                   />
                 </div>
               )}
-              <div className="p-5">
+              <div className="p-5 flex-1">
                 <h3 className="font-headline text-lg text-marine mb-2">
                   {service.title}
                 </h3>
