@@ -46,8 +46,14 @@ export interface SiteSettings {
   address?: string;
   socialLinks?: SocialLink[];
 
+  // Section headings
+  problemHeading?: string; // ← NOUVEAU
   servicesHeading?: string;
   servicesIntro?: string;
+  benefitsHeading?: string;
+  benefitsIntro?: string;
+  testimonialsHeading?: string;
+  testimonialsIntro?: string;
   processHeading?: string;
   processIntro?: string;
   processCtaLabel?: string;
@@ -56,10 +62,10 @@ export interface SiteSettings {
   projectsIntro?: string;
   projectCardViewLabel?: string;
   projectCardQuoteLabel?: string;
-  testimonialsHeading?: string;
-  testimonialsIntro?: string;
-  benefitsHeading?: string;
-  benefitsIntro?: string;
+  faqHeading?: string; // ← NOUVEAU
+  ctaHeading?: string; // ← NOUVEAU
+  ctaIntro?: string; // ← NOUVEAU
+  footerTagline?: string; // ← NOUVEAU
   contactHeading?: string;
   contactIntro?: string;
   contactSubmitLabel?: string;

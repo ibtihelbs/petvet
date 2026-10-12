@@ -2,7 +2,7 @@ import Image from "next/image";
 import { heroImageFallback } from "@/lib/imageFallback";
 import { urlFor } from "@/sanity/image";
 import type { SiteSettings } from "@/types/sanity";
-
+import PhoneIcon from "./PhoneIcon";
 export function Hero({ settings }: { settings: SiteSettings | null }) {
   const heroUrl =
     urlFor(settings?.heroImage?.asset)?.width(1400).url() || heroImageFallback;
@@ -17,26 +17,26 @@ export function Hero({ settings }: { settings: SiteSettings | null }) {
               {settings.heroSubtitle}
             </p>
           )}
-          <h1 className="uppercase  text-[clamp(36px,6vw,48px)] leading-none tracking-tight text-marine mb-6">
+          <h1 className="uppercase text-[clamp(36px,6vw,48px)] leading-none tracking-tight text-marine mb-6">
             {settings?.heroTitle ||
-              "Beautiful Outdoors, Designed for Perth Living"}
+              "Quand votre animal a besoin d'aide, chaque minute compte."}
           </h1>
           <p className="text-base leading-relaxed text-ink/80 mb-8 max-w-xl">
             {settings?.heroDescription}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a
+            {/**   <a
               href="#contact"
               className="inline-flex items-center justify-center rounded-brand bg-terracotta px-8 py-4 font-semibold text-marine hover:bg-terracotta-75 transition-colors"
             >
-              {settings?.heroPrimaryCtaLabel || "Get A Free Quote"}
-            </a>
+              {settings?.heroPrimaryCtaLabel || "Prendre rendez-vous"}
+            </a> */}
             {phone && (
               <a
                 href={`tel:${phone.replace(/\s+/g, "")}`}
                 className="inline-flex items-center justify-center rounded-brand border-2 border-marine px-8 py-4 font-semibold text-marine hover:bg-marine hover:text-almond transition-colors"
               >
-                {settings?.heroSecondaryCtaLabel || "Call Us Today"}
+                {settings?.heroSecondaryCtaLabel || "Appelez-nous"}
               </a>
             )}
           </div>
@@ -45,7 +45,10 @@ export function Hero({ settings }: { settings: SiteSettings | null }) {
         <div className="relative aspect-[4/3] rounded-brand overflow-hidden">
           <Image
             src={heroUrl}
-            alt={settings?.heroImage?.alt || "Landscaped Perth backyard"}
+            alt={
+              settings?.heroImage?.alt ||
+              "Clinique vétérinaire PET VET à Hammam-Lif"
+            }
             fill
             priority
             className="object-cover"
@@ -54,21 +57,22 @@ export function Hero({ settings }: { settings: SiteSettings | null }) {
         </div>
       </div>
 
-      {/* Mobile sticky CTA bar — highest-converting pattern on mobile, per brief's mobile focus */}
+      {/* Barre CTA mobile sticky — pattern le plus convertissant sur mobile */}
       {phone && (
         <div className="fixed bottom-0 inset-x-0 z-40 md:hidden bg-marine flex">
           <a
             href={`tel:${phone.replace(/\s+/g, "")}`}
             className="flex-1 text-center py-3.5 text-almond font-semibold text-sm border-r border-almond/20"
           >
-            📞 Call Now
+            <PhoneIcon />
+            Appeler
           </a>
-          <a
+          {/* <a
             href="#contact"
-            className="flex-1 text-center py-3.5 text-marine bg-terracotta font-semibold text-sm"
+            className="hidden sm:inline-flex items-center rounded-brand bg-terracotta px-5 py-2.5 text-sm font-semibold text-marine hover:bg-terracotta-75 transition-colors"
           >
-            Get A Free Quote
-          </a>
+            Prendre rendez-vous
+          </a>*/}
         </div>
       )}
     </section>

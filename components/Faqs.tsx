@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { Faq } from "@/types/sanity";
+import type { Faq, SiteSettings } from "@/types/sanity";
 
 function faqText(faq: Faq): string {
   return (
@@ -11,9 +11,15 @@ function faqText(faq: Faq): string {
   );
 }
 
-export function Faqs({ faqs }: { faqs: Faq[] }) {
+export function Faqs({
+  faqs,
+  settings,
+}: {
+  faqs: Faq[];
+  settings: SiteSettings | null;
+}) {
   const [openId, setOpenId] = useState<string | null>(null);
-
+  console.log(settings?.faqHeading, "settings?.faqHeading");
   if (faqs.length === 0) return null;
 
   return (
@@ -22,7 +28,7 @@ export function Faqs({ faqs }: { faqs: Faq[] }) {
       className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24"
     >
       <h2 className="uppercase leading-none tracking-tight text-[clamp(30px,8vw,48px)] text-marine mb-10 text-center">
-        Frequently Asked Questions
+        {settings?.faqHeading || "Questions fréquentes"}
       </h2>
 
       <div className="space-y-3">

@@ -36,10 +36,11 @@ export function JsonLd({
       ? {
           "@type": "PostalAddress",
           streetAddress: settings.address,
-          addressRegion: "WA",
-          addressCountry: "AU",
+          addressRegion: "Ben Arous",
+          addressCountry: "TN",
         }
       : undefined,
+
     geo: settings.geo
       ? {
           "@type": "GeoCoordinates",

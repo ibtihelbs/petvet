@@ -1,12 +1,12 @@
 import type { SiteSettings } from "@/types/sanity";
-
+import Image from "next/image";
 const USEFUL_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Our Services", href: "#services" },
-  { label: "Our Projects", href: "#projects" },
-  { label: "Why Choose Us", href: "#benefits" },
-  { label: "Contact Us", href: "#contact" },
-  { label: "FAQs", href: "#faqs" },
+  { label: "Accueil", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Processus", href: "#process" },
+  { label: "Notre clinique", href: "#benefits" },
+  { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faqs" },
 ];
 
 export function Footer({ settings }: { settings: SiteSettings | null }) {
@@ -57,6 +57,13 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="relative h-full w-full">
+          <Image
+            src="/assets/petillusration/pets19PNG.png"
+            alt="PetVet Logo"
+            fill
+          />
         </div>
       </div>
 

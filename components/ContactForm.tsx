@@ -1,65 +1,77 @@
-'use client'
+"use client";
 
-import { useState, type FormEvent } from 'react'
-import { trackLeadSubmitted } from '@/lib/gtag'
-import type { SiteSettings } from '@/types/sanity'
+import { useState, type FormEvent } from "react";
+import { trackLeadSubmitted } from "@/lib/gtag";
+import type { SiteSettings } from "@/types/sanity";
 
-type Status = 'idle' | 'submitting' | 'success' | 'error'
+type Status = "idle" | "submitting" | "success" | "error";
 
 const SERVICE_OPTIONS = [
-  'Landscape Design',
-  'Garden Landscaping',
-  'Paving & Outdoor Areas',
-  'Retaining Walls',
-  'Garden Makeovers',
-  'Not sure yet',
-]
+  "Urgences et soins généraux",
+  "Chirurgie avancée",
+  "Hospitalisation",
+  "Bien-être et soins",
+  "Alimentation animalière",
+  "Je ne sais pas encore",
+];
 
 export function ContactForm({ settings }: { settings: SiteSettings | null }) {
-  const [status, setStatus] = useState<Status>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setStatus('submitting')
-    setErrorMessage('')
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
 
-    const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form).entries())
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
-      })
+      });
 
-      if (!res.ok) throw new Error('Something went wrong sending your enquiry.')
+      if (!res.ok)
+        throw new Error("Une erreur s'est produite lors de l'envoi.");
 
-      trackLeadSubmitted(String(data.serviceType || ''))
-      setStatus('success')
-      form.reset()
+      trackLeadSubmitted(String(data.serviceType || ""));
+      setStatus("success");
+      form.reset();
     } catch (err) {
-      setStatus('error')
-      setErrorMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "Une erreur est survenue. Veuillez réessayer.",
+      );
     }
   }
 
-  if (status === 'success') {
+  if (status === "success") {
     return (
       <div className="rounded-brand bg-marine text-almond p-8 text-center">
-        <p className="font-headline text-xl mb-2">Thanks — we&apos;ve got your enquiry.</p>
-        <p className="text-sm opacity-90">We&apos;ll be in touch shortly to talk through your project.</p>
+        <p className="font-headline text-xl mb-2">
+          Merci — nous avons bien reçu votre demande.
+        </p>
+        <p className="text-sm opacity-90">
+          Nous vous contacterons très prochainement.
+        </p>
       </div>
-    )
+    );
   }
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-sm font-medium text-ink mb-1">
-            First name
+          <label
+            htmlFor="firstName"
+            className="block text-sm font-medium text-ink mb-1"
+          >
+            Prénom
           </label>
           <input
             id="firstName"
@@ -69,8 +81,11 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
           />
         </div>
         <div>
-          <label htmlFor="lastName" className="block text-sm font-medium text-ink mb-1">
-            Last name
+          <label
+            htmlFor="lastName"
+            className="block text-sm font-medium text-ink mb-1"
+          >
+            Nom
           </label>
           <input
             id="lastName"
@@ -83,8 +98,11 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-ink mb-1">
-            Phone
+          <label
+            htmlFor="phone"
+            className="block text-sm font-medium text-ink mb-1"
+          >
+            Téléphone
           </label>
           <input
             id="phone"
@@ -95,7 +113,10 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-ink mb-1">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-ink mb-1"
+          >
             Email
           </label>
           <input
@@ -109,8 +130,11 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
       </div>
 
       <div>
-        <label htmlFor="suburb" className="block text-sm font-medium text-ink mb-1">
-          Suburb <span className="text-ink/40">(optional)</span>
+        <label
+          htmlFor="suburb"
+          className="block text-sm font-medium text-ink mb-1"
+        >
+          Ville <span className="text-ink/40">(facultatif)</span>
         </label>
         <input
           id="suburb"
@@ -120,15 +144,18 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
       </div>
 
       <div>
-        <label htmlFor="serviceType" className="block text-sm font-medium text-ink mb-1">
-          What type of landscaping do you need?
+        <label
+          htmlFor="serviceType"
+          className="block text-sm font-medium text-ink mb-1"
+        >
+          Quel service vous intéresse ?
         </label>
         <select
           id="serviceType"
           name="serviceType"
           className="w-full rounded-brand border border-ink/20 px-4 py-3 bg-white focus-visible:outline-terracotta"
         >
-          <option value="">Select a service</option>
+          <option value="">Sélectionnez un service</option>
           {SERVICE_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>
               {opt}
@@ -138,8 +165,11 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-ink mb-1">
-          Tell us about your project
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-ink mb-1"
+        >
+          Décrivez votre demande
         </label>
         <textarea
           id="message"
@@ -150,15 +180,17 @@ export function ContactForm({ settings }: { settings: SiteSettings | null }) {
         />
       </div>
 
-      {status === 'error' && <p className="text-sm text-red-700">{errorMessage}</p>}
+      {status === "error" && (
+        <p className="text-sm text-red-700">{errorMessage}</p>
+      )}
 
       <button
         type="submit"
-        disabled={status === 'submitting'}
+        disabled={status === "submitting"}
         className="inline-flex items-center justify-center rounded-brand bg-terracotta px-8 py-4 font-semibold text-marine hover:bg-terracotta-75 transition-colors disabled:opacity-60"
       >
-        {status === 'submitting' ? 'Sending…' : settings?.contactSubmitLabel || 'Request My Free Quote'}
+        {status === "submitting" ? "Envoi…" : "Demander un rendez-vous"}
       </button>
     </form>
-  )
+  );
 }

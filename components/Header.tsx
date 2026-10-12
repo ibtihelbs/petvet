@@ -6,12 +6,12 @@ import { logoFallback } from "@/lib/imageFallback";
 import { urlFor } from "@/sanity/image";
 import { trackCallClick } from "@/lib/gtag";
 import type { SiteSettings } from "@/types/sanity";
-
+import PhoneIcon from "./PhoneIcon";
 const NAV_LINKS = [
-  { label: "Home", href: "#home" },
+  { label: "Accueil", href: "#home" },
   { label: "Services", href: "#services" },
-  { label: "Our Work", href: "#projects" },
-  { label: "Why Choose Us", href: "#benefits" },
+  { label: "Notre clinique", href: "#benefits" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function Header({ settings }: { settings: SiteSettings | null }) {
@@ -26,13 +26,13 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
         <a href="#home" className="flex items-center gap-2 shrink-0">
           <Image
             src={logoUrl}
-            alt={settings?.logo?.alt || "PetVet logo"}
+            alt={settings?.logo?.alt || "Logo PET VET"}
             width={44}
             height={44}
             className="rounded-full"
           />
           <span className="font-headline text-lg tracking-wide text-marine hidden sm:block">
-            PetVet
+            PET VET
           </span>
         </a>
 
@@ -53,30 +53,25 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
             <a
               href={`tel:${phone.replace(/\s+/g, "")}`}
               onClick={trackCallClick}
-              className="hidden  sm:inline-flex items-center gap-2 text-sm font-semibold text-marine hover:text-terracotta transition-colors"
-              aria-label={`Call PetVet at ${phone}`}
+              className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-marine hover:text-terracotta transition-colors"
+              aria-label={`Appeler PET VET au ${phone}`}
             >
-              <Image
-                src="/images/phone.png"
-                alt="Phone"
-                width={20}
-                height={20}
-              />
+              <PhoneIcon />
               {phone}
             </a>
           )}
-          <a
+          {/* <a
             href="#contact"
             className="hidden sm:inline-flex items-center rounded-brand bg-terracotta px-5 py-2.5 text-sm font-semibold text-marine hover:bg-terracotta-75 transition-colors"
           >
-            Get A Free Quote
-          </a>
+            Prendre rendez-vous
+          </a>*/}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             className="md:hidden p-2 -mr-2 text-ink"
             aria-expanded={open}
-            aria-label="Toggle menu"
+            aria-label="Ouvrir le menu"
           >
             <span className="sr-only">Menu</span>
             <div className="w-6 h-0.5 bg-ink mb-1.5" />
@@ -104,7 +99,8 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
               onClick={trackCallClick}
               className="text-sm font-semibold text-marine"
             >
-              📞 Call {phone}
+              <PhoneIcon />
+              Appeler le {phone}
             </a>
           )}
           <a
@@ -112,7 +108,7 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
             onClick={() => setOpen(false)}
             className="inline-flex items-center justify-center rounded-brand bg-terracotta px-5 py-2.5 text-sm font-semibold text-marine"
           >
-            Get A Free Quote
+            Prendre rendez-vous
           </a>
         </nav>
       )}

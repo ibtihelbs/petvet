@@ -51,7 +51,7 @@ export default async function HomePage() {
         <Projects projects={projects} settings={settings} />
         <Testimonials testimonials={testimonials} settings={settings} />
         <Benefits benefits={benefits} settings={settings} />
-        <Faqs faqs={faqs} />
+        <Faqs faqs={faqs} settings={settings} />
         <Contact settings={settings} />
       </main>
       <Footer settings={settings} />

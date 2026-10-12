@@ -3,7 +3,7 @@ import type { Benefit, SiteSettings } from "@/types/sanity";
 const CARD_STYLES = [
   "bg-marine text-almond",
   "bg-sand text-marine",
-  "bg-terracotta text-marine",
+  "bg-terracotta text-almond",
 ];
 
 export function Benefits({
@@ -22,11 +22,9 @@ export function Benefits({
     >
       <div className="max-w-2xl mx-auto text-center mb-12">
         <h2 className="uppercase leading-none tracking-tight text-[clamp(30px,8vw,48px)] text-marine mb-4">
-          {settings?.benefitsHeading || "Why Perth Homeowners Choose PetVet"}
+          {settings?.benefitsHeading ||
+            "Pourquoi les propriétaires d'animaux de Hammam-Lif nous font confiance"}
         </h2>
-        {settings?.benefitsIntro && (
-          <p className="text-ink/70">{settings.benefitsIntro}</p>
-        )}
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
