@@ -19,7 +19,6 @@ export function Faqs({
   settings: SiteSettings | null;
 }) {
   const [openId, setOpenId] = useState<string | null>(null);
-  console.log(settings?.faqHeading, "settings?.faqHeading");
   if (faqs.length === 0) return null;
 
   return (

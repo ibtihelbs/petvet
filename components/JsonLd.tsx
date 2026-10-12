@@ -23,7 +23,6 @@ export function JsonLd({
   siteUrl: string;
 }) {
   if (!settings) return null;
-  console.log(settings);
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
