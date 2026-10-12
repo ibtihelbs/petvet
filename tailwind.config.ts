@@ -5,13 +5,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Ported 1:1 from the original variables.module.css brand palette
-        marine: { DEFAULT: "#0f190c", 75: "#325027" },
-        wine: { DEFAULT: "#38512f", 75: "#48683d" },
-        ink: { DEFAULT: "#1d261a", 75: "#293625" },
-        terracotta: { DEFAULT: "#cca325", 75: "#e3b832" },
-        sand: { DEFAULT: "#a1b058", 75: "#b5c46b" },
-        almond: { DEFAULT: "#f1f0db", 75: "#faf9f0" },
+        // Mapped to: Primary Brand Teal & Lighter Teal
+        marine: { DEFAULT: "#0A748C", 75: "#4A9CAF" },
+
+        // Mapped to: Coral / Soft Orange (Accent) & Lighter Coral
+        wine: { DEFAULT: "#F97316", 75: "#FB923C" },
+
+        // Mapped to: Deep Charcoal (Text) & Lighter Muted Text
+        ink: { DEFAULT: "#1F2937", 75: "#4B5563" },
+
+        // Mapped to: Warm Sand / Soft Cream & Lighter Cream
+        terracotta: { DEFAULT: "#F5F0E6", 75: "#FAF8F3" },
+
+        // Mapped to: Soft Mint / Pale Aqua & Lighter Mint
+        sand: { DEFAULT: "#E6F2F4", 75: "#F2F8F9" },
+
+        // Mapped to: Crisp White & Off-White (for main backgrounds)
+        almond: { DEFAULT: "#FFFFFF", 75: "#F9FAFB" },
       },
       fontFamily: {
         headline: ["var(--font-headline)", "sans-serif"],
