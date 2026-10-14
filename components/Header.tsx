@@ -32,7 +32,7 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
             className="rounded-full"
           />
           <span className="font-headline text-lg tracking-wide text-marine hidden sm:block">
-            PET VET
+            PETVET
           </span>
         </a>
 
@@ -106,7 +106,7 @@ export function Header({ settings }: { settings: SiteSettings | null }) {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="inline-flex items-center justify-center rounded-brand bg-terracotta px-5 py-2.5 text-sm font-semibold text-marine"
+            className="inline-flex items-center justify-center rounded-brand text-terracotta px-5 py-2.5 text-sm font-semibold text-wine"
           >
             Prendre rendez-vous
           </a>

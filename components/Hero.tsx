@@ -13,7 +13,7 @@ export function Hero({ settings }: { settings: SiteSettings | null }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div>
           {settings?.heroSubtitle && (
-            <p className="text-sm font-semibold uppercase tracking-wide text-wine mb-4">
+            <p className="text-xs font-semibold capitalize bg-wine  tracking-wide rounded-full p-2 text-terracotta mb-4">
               {settings.heroSubtitle}
             </p>
           )}

@@ -191,7 +191,7 @@ export function Contact({ settings }: { settings: SiteSettings | null }) {
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <a
             href={`tel:+216${PHONE_CLEAN}`}
-            className="inline-flex items-center gap-2 rounded-brand bg-terracotta px-8 py-4 font-semibold text-almond hover:bg-terracotta/90 transition-colors"
+            className="inline-flex items-center gap-2 rounded-brand bg-wine px-8 py-4 font-semibold text-almond hover:text-marine hover:border-marine hover:border hover:bg-terracotta/90 transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
