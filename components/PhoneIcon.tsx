@@ -1,6 +1,6 @@
 import React from "react";
 
-const PhoneIcon = () => {
+const PhoneIcon = ({ color = "#0a748c" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,7 @@ const PhoneIcon = () => {
       height={24}
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#0a748c"
+      stroke={color}
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"

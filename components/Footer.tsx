@@ -1,5 +1,6 @@
 import type { SiteSettings } from "@/types/sanity";
 import Image from "next/image";
+import PhoneIcon from "./PhoneIcon";
 const USEFUL_LINKS = [
   { label: "Accueil", href: "#home" },
   { label: "Services", href: "#services" },
@@ -20,7 +21,10 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
             {settings?.businessName || "PetVet"}
           </h3>
           {settings?.contactPhone && (
-            <p className="text-sm opacity-80 mb-1">{settings.contactPhone}</p>
+            <div className="flex items-center gap-2 mb-1">
+              <PhoneIcon color="white" />{" "}
+              <p className=" text-sm  mb-1">{settings.contactPhone}</p>
+            </div>
           )}
           {settings?.contactEmail && (
             <p className="text-sm opacity-80 mb-1">{settings.contactEmail}</p>
