@@ -49,7 +49,7 @@ export default async function HomePage() {
         <Services services={services} settings={settings} />
         <Process steps={processSteps} settings={settings} />
         <Projects projects={projects} settings={settings} />
-        <Testimonials testimonials={testimonials} settings={settings} />
+        <Testimonials />
         <Benefits benefits={benefits} settings={settings} />
         <Faqs faqs={faqs} settings={settings} />
         <Contact settings={settings} />
