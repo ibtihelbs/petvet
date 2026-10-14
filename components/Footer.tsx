@@ -68,7 +68,8 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
       </div>
 
       <div className="border-t border-almond/10 py-6 text-center text-xs opacity-60">
-        © {year} {settings?.businessName || "PetVet"}. All rights reserved.
+        © {year} {settings?.businessName || "PET VET — Clinique Vétérinaire"}.
+        Tous droits réservés.
       </div>
     </footer>
   );

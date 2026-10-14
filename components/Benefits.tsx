@@ -1,9 +1,10 @@
 import type { Benefit, SiteSettings } from "@/types/sanity";
+import Image from "next/image";
 
 const CARD_STYLES = [
   "bg-marine text-almond",
   "bg-sand text-marine",
-  "bg-terracotta text-almond",
+  "bg-terracotta text-marine",
 ];
 
 export function Benefits({
@@ -39,6 +40,14 @@ export function Benefits({
             </p>
           </div>
         ))}
+        <div className="relative bg-terracotta rounded-brand p-8">
+          <Image
+            src="/assets/petillusration/pets26PNG.png"
+            alt="Pets"
+            fill
+            className="object-contain"
+          />
+        </div>
       </div>
     </section>
   );

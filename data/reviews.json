@@ -1,0 +1,35 @@
+{
+  "business": "PET VET - Clinique Vétérinaire",
+  "averageRating": 4.5,
+  "totalReviews": 25,
+  "googlePlaceUrl": "https://www.google.com/maps/place/PET+VET+-+Clinique+Vétérinaire",
+  "reviews": [
+    {
+      "id": "1",
+      "name": "Nour El Houda Lajmi",
+      "suburb": "Hammam-Lif",
+      "date": "2025-04-15",
+      "rating": 5,
+      "quote": "J'ai eu une expérience formidable ! Le personnel m'a mise à l'aise dès mon arrivée. J'apprécie vraiment qu'ils allient expertise et prix abordables. Il est clair qu'ils se soucient sincèrement des animaux. Merci pour cet excellent service 🌸",
+      "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjVjY0q7nizP4i92-l-2fzvm-qfR1g2kJO1-FSHCpvwhiGIcjQ0=s128-c-rp-mo-br100"
+    },
+    {
+      "id": "2",
+      "name": "Saidane Yosr",
+      "suburb": "Hammam-Lif",
+      "date": "2023-06-10",
+      "rating": 5,
+      "quote": "Excellent vétérinaire. Merci beaucoup pour votre disponibilité et surtout votre efficacité.",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLGPJmlgeCmC_j5krPmyRpnILAlMaCFAAxHttYMqULSjdqK-Q=s128-c-rp-mo-br100"
+    },
+    {
+      "id": "3",
+      "name": "Ahmed Ben Med",
+      "suburb": "Local Guide Google",
+      "date": "2022-03-20",
+      "rating": 5,
+      "quote": "Les personnes y sont très accueillantes et professionnelles.",
+      "avatar": "https://lh3.googleusercontent.com/a-/ALV-UjX6CecO6rplLPV_6Fbego4hz0EqxOIfzZtCseXPxZTNVUEPyQcZtQ=s128-c-rp-mo-ba12-br100"
+    }
+  ]
+}
